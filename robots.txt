@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://library.karaoke-sangsu-pro.xyz/sitemap.xml
