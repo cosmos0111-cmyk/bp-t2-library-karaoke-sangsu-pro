@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 · t2-library-karaoke-sangsu-pro</title>
+  <meta name="description" content="t2-library-karaoke-sangsu-pro에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://library.karaoke-sangsu-pro.xyz/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* Midnight Glass Design System */
+ :root {
+ --bg-color: #06070d;
+ --glass-bg: rgba(255, 255, 255, 0.02);
+ --glass-border: rgba(255, 255, 255, 0.07);
+ --glass-hover-border: rgba(255, 255, 255, 0.15);
+ --primary-accent: #dfb76c; /* Editorial Gold */
+ --text-main: #f3f4f6;
+ --text-muted: #8e919a;
+ --font-serif: 'Playfair Display', 'Noto Serif KR', serif;
+ --font-sans: 'Inter', 'Noto Sans KR', sans-serif;
+ }
+
+ * {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ }
+
+ body {
+ background-color: var(--bg-color);
+ color: var(--text-main);
+ font-family: var(--font-sans);
+ line-height: 1.7;
+ letter-spacing: -0.02em;
+ word-break: keep-all;
+ background-image: 
+ radial-gradient(circle at 50% -20%, rgba(223, 183, 108, 0.08), transparent 50%),
+ radial-gradient(circle at 10% 40%, rgba(255, 255, 255, 0.01), transparent 30%);
+ background-attachment: fixed;
+ }
+
+ /* Layout Constraints: Single-column narrative flow (720px max-width) */
+ .container {
+ max-width: 720px;
+ margin: 0 auto;
+ padding: 0 24px;
+ }
+
+ /* Header & Navigation */
+ header {
+ border-bottom: 1px solid var(--glass-border);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background: rgba(6, 7, 13, 0.8);
+ }
+
+ .nav-wrapper {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 72px;
+ }
+
+ .logo {
+ font-size: 1.1rem;
+ font-weight: 800;
+ letter-spacing: 0.05em;
+ text-transform: uppercase;
+ color: var(--text-main);
+ text-decoration: none;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ }
+
+ .logo span {
+ color: var(--primary-accent);
+ }
+
+ .nav-menu {
+ display: flex;
+ gap: 24px;
+ }
+
+ .nav-link {
+ color: var(--text-muted);
+ text-decoration: none;
+ font-size: 0.9rem;
+ font-weight: 500;
+ transition: color 0.2s ease;
+ }
+
+ .nav-link:hover, .nav-link.active {
+ color: var(--primary-accent);
+ }
+
+ /* Hero Section (Editorial Luxury) */
+ .hero {
+ padding: 80px 0 48px;
+ text-align: left;
+ }
+
+ .tagline {
+ font-size: 0.85rem;
+ text-transform: uppercase;
+ letter-spacing: 0.15em;
+ color: var(--primary-accent);
+ font-weight: 700;
+ margin-bottom: 16px;
+ display: block;
+ }
+
+ h1 {
+ font-family: var(--font-sans);
+ font-size: 2.5rem;
+ font-weight: 900;
+ line-height: 1.25;
+ color: var(--text-main);
+ margin-bottom: 24px;
+ }
+
+ h1 span {
+ display: block;
+ background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ }
+
+ .lead {
+ font-size: 1.15rem;
+ color: var(--text-muted);
+ line-height: 1.8;
+ margin-bottom: 32px;
+ }
+
+ /* Content Blocks (Visual Rhythm Variation) */
+ .section-title {
+ font-size: 1.5rem;
+ font-weight: 800;
+ margin: 56px 0 24px;
+ color: var(--text-main);
+ border-left: 3px solid var(--primary-accent);
+ padding-left: 16px;
+ }
+
+ .paragraph {
+ font-size: 1.05rem;
+ color: var(--text-muted);
+ margin-bottom: 24px;
+ text-align: justify;
+ }
+
+ .paragraph strong {
+ color: var(--text-main);
+ }
+
+ /* Editorial Bold Callout */
+ .callout-box {
+ background: var(--glass-bg);
+ border: 1px solid var(--glass-border);
+ border-left: 4px solid var(--primary-accent);
+ padding: 32px;
+ border-radius: 4px;
+ margin: 40px 0;
+ backdrop-filter: blur(4px);
+ }
+
+ .callout-title {
+ font-size: 1.15rem;
+ font-weight: 800;
+ color: var(--text-main);
+ margin-bottom: 12px;
+ }
+
+ .callout-text {
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ line-height: 1.7;
+ }
+
+ /* Pillars Grid (Custom layout for About page) */
+ .pillars {
+ display: grid;
+ grid-template-columns: 1fr;
+ gap: 20px;
+ margin: 32px 0;
+ }
+
+ .pillar-card {
+ background: var(--glass-bg);
+ border: 1px solid var(--glass-border);
+ padding: 28px;
+ border-radius: 4px;
+ transition: border-color 0.3s ease;
+ }
+
+ .pillar-card:hover {
+ border-color: var(--glass-hover-border);
+ }
+
+ .pillar-num {
+ font-size: 0.8rem;
+ font-weight: 700;
+ color: var(--primary-accent);
+ margin-bottom: 12px;
+ display: block;
+ }
+
+ .pillar-title {
+ font-size: 1.2rem;
+ font-weight: 700;
+ color: var(--text-main);
+ margin-bottom: 8px;
+ }
+
+ .pillar-desc {
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ }
+
+ /* FAQ Accordion (Clean Minimalist) */
+ .faq-item {
+ border-bottom: 1px solid var(--glass-border);
+ padding: 24px 0;
+ }
+
+ .faq-question {
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: var(--text-main);
+ margin-bottom: 12px;
+ display: flex;
+ align-items: flex-start;
+ gap: 12px;
+ }
+
+ .faq-question span {
+ color: var(--primary-accent);
+ }
+
+ .faq-answer {
+ font-size: 0.95rem;
+ color: var(--text-muted);
+ padding-left: 28px;
+ line-height: 1.7;
+ }
+
+ /* Footer */
+ footer {
+ border-top: 1px solid var(--glass-border);
+ padding: 48px 0;
+ margin-top: 80px;
+ font-size: 0.85rem;
+ color: var(--text-muted);
+ text-align: center;
+ }
+
+ .footer-links {
+ display: flex;
+ justify-content: center;
+ gap: 24px;
+ margin-bottom: 20px;
+ }
+
+ .footer-link {
+ color: var(--text-muted);
+ text-decoration: none;
+ }
+
+ .footer-link:hover {
+ color: var(--primary-accent);
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+ h1 {
+ font-size: 2rem;
+ }
+ .hero {
+ padding: 60px 0 32px;
+ }
+ .callout-box {
+ padding: 24px;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 · t2-library-karaoke-sangsu-pro">
+  <meta property="og:description" content="t2-library-karaoke-sangsu-pro에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://library.karaoke-sangsu-pro.xyz/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="container">
+ <div class="nav-wrapper">
+ <a href="/" class="logo">BUDGET <span>GUIDE</span></a>
+ <nav class="nav-menu">
+ <a href="/" class="nav-link">홈</a>
+ <a href="/about.html" class="nav-link active">소개</a>
+ </nav>
+ </div>
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 15개</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/field_note-002-1xuhr8d.html">유흥 예산 가이드 현장에서 확인한 선택 기준과 주의점</a>
+        <p class="post-item__summary">안녕하세요! 무엇을 도와드릴까요? 원하시는 작업이나 질문을 말씀해 주세요.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/field_note-004-1tmx1oy.html">업자들 마진 까발리는 단골의 유흥 예산 가이드: 룸 원가 계산서 들여다보기</a>
+        <p class="post-item__summary">과연 당신이 테이블 위에 올려진 골든블루 12년산 한 병에 지불한 25만 원 중, 진짜 '술값'은 몇 퍼센트나 될까?</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/field_note-005-47k9r4.html">예산 지키는 놈들의 공통점: 데모 신뢰 안 함</a>
+        <p class="post-item__summary">보통 유흥 예산 하면 고정비랑 변동비 분리하라고들 한다. 근데 그건 반만 맞는 소리다. 진짜 예산을 깨먹는 건 계획에 없던 변수다. 특히 그 변수가 '데모 버전' 정보에 속아서 발생하는 경우가 태반</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-001-rtspor.html">정보 블로그 해결 방법 총정리</a>
+        <p class="post-item__summary">안녕하세요! 어떤 작업이나 프로젝트를 도움 받고 싶으신가요?</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-003-147b03q.html">2억 원짜리 권리금 통지서가 남긴 씁쓸한 뒷맛</a>
+        <p class="post-item__summary">2023년 11월, 홍대입구역 9번 출구 뒷골목에서 보증금 5천에 권리금 2억을 챙겨 나간 술집 사장님을 기억한다. 그가 남긴 실거래 내역서를 훑어보니, 매출 기록은 화려했지만 순이익은 3년 내내 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-004-557zzu.html">유흥 예산 가이드: 단골이 사장 몰래 분석한 가격대별 마진율</a>
+        <p class="post-item__summary">보통 사람들은 룸 시스템의 마진이 술값에 있다고 믿는다. 사장들이 '우린 술값 마진 거의 없어서 적자다'라는 말을 입에 달고 살기 때문이다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/major_compare-001-fvvevx.html">강남 3차까지 봤냐? 형이 까발리는 유흥 예산 가이드 vs 실제 지출의 차이</a>
+        <p class="post-item__summary">내 게임 '네온 나이트메어'가 스팀에서 내려진 건 출시 사흘 만이었다. 이유는 데모 버전에 있던 '블러드 스트리트' 지역이 정식 버전에서 잘려나갔기 때문이다. 유저들은 환불을 요구했다. &quot;기만이다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/major_compare-003-snp0ma.html">유흥 예산 가이드 vs 유흥 예산 가이드 비교</a>
+        <p class="post-item__summary">안녕하세요! 어떤 도움이 필요하신가요? 진행하고자 하시는 작업이나 개발하시려는 프로젝트/기능을 말씀해 주시면 자세히 안내해 드리고 도와드리겠습니다!</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/major_compare-005-1e5ot82.html">권리금 2억의 실체, 룸 서비스업 원가 구조를 뜯어보다</a>
+        <p class="post-item__summary">2023년 11월, 강남 한복판에서 권리금 2억을 챙겨 떠난 사장을 보며 든 생각은 하나였다. ‘저걸 왜 이 가격에 넘겼을까.’ 장부상 매출은 화려했지만, 실질 마진율을 뜯어보면 30%대 벽을 넘기</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-002-1gyu3ko.html">술값 덤탱이 쓰는 놈들이 모르는 마진의 배신</a>
+        <p class="post-item__summary">&quot;사장님, 이거 마진 남기는 거 맞아요?&quot; 내가 슥 던진 말에 사장 얼굴이 찰나의 순간 일그러지더군. 사람들은 보통 룸 단위 서비스업이 술값에서 큰 마진을 남긴다고 믿어. 하지만 진짜 현장은 훨씬 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-003-1nwf932.html">예산 짜는 니가 데모판만 봐야 하는 이유는?</a>
+        <p class="post-item__summary">다크소울 데모 버전을 해본 사람들은 안다. 아니, 안다고 착각하는 사람들이 꽤 많다. &quot;데모는 미완성 프로토타입이다&quot;라는 게 보통 통념인데, 실제 파일을 뜯어보면 정반대다. 2011년 TGS 데모 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-005-152u27n.html">유흥 예산 가이드에 대한 통념과 실제 차이를 검토했다</a>
+        <p class="post-item__summary">서울 지역을 비롯한 다양한 공간에서 유흥 관련 정보를 찾을 때 많은 이용자가 가장 먼저 접하는 요소가 바로 유흥 예산 가이드입니다. 초보 이용자나 낯선 지역을 방문하는 사람들은 대개 인터넷에 올려진</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-001-kur93n.html">&amp;quot;매출 3천인데 왜 망해요?&amp;quot; 형님이 까발리는 룸 비즈니스 진짜 마진율과 예산 설계법</a>
+        <p class="post-item__summary">2022년 11월 14일 새벽 4시 20분, 마포 뒷골목 지하 룸에서 마지막 손님이 나가고 포스기 정산창에 찍힌 숫자는 정확히 3,240만 원이었다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-002-ksfnpp.html">슬라이드 7장을 본 형님의 한마디: 니가 본 게 다가 아니다</a>
+        <p class="post-item__summary">2013년 6월, 가디언 지면을 장식한 4장의 슬라이드 중 누구도 7장의 존재를 언급하지 않았다. 그 슬라이드는 정작 워싱턴포스트의 편집국에서 보류된 채 2년 동안 하드디스크 구석에 쳐박혀 있었다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/qa-004-1t5fteg.html">유흥 예산 가이드 관련 질문을 상황별로 정리해봤다</a>
+        <p class="post-item__summary">안녕하세요! 어떤 작업을 도와드릴까요? 원하시는 프로젝트 구축, 코드 작성, 버그 수정, 웹 애플리케이션 개발 등의 지시 사항을 입력해 주세요.</p>
+      </li>
+      </ul>
+
+    </main>
+  </div>
+</body>
+</html>
